@@ -169,17 +169,35 @@ body {
 }
 
 .menu {
-    background-color: #535952;
+    /* background-color: #535952; */
     padding: 10px 30px;
     margin: 0;
     list-style: none;
     display: flex;
     justify-content: space-around;
+    font-size: 1.2rem;
+
+    --calmblue: 215;
 }
 
 .menu a {
+    position: relative;
     text-decoration: none;
-    color: #fce8ff;
+    color: hsl(var(--calmblue), 38%, 60%);
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.menu a::before {
+    position: absolute;
+    content: attr(data-hover);
+    color: hsl(var(--calmblue), 48%, 90%);
+    transition: transform 300ms, opacity 0.3s;
+}
+
+.menu a:hover::before {
+    opacity: 0;
+    transform: scale(0.9);
 }
 
 /* .header-promo {
